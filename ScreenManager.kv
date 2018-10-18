@@ -1,0 +1,534 @@
+<MainScreen>:
+	content: " "
+	status: " "
+	listTask: " "
+	count: 0
+	canvas:
+		Color:
+			rgb: 1, 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		markup: True
+		text: root.content
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .25}
+		halign: 'center'
+		valign: 'middle'
+	Label:
+		markup: True
+		text: "Your tasks:"
+		color: 0, 0, 0, 1
+		font_size: 20
+		pos_hint: {"x": 0, "y": 0}
+	Label:
+		markup: True
+		text: root.listTask
+		color: 0, 0, 0, 1
+		font_size: 20
+		pos_hint: {"x": 0, "y": -.25}
+	Label:
+		markup: True
+		text: root.status
+		color: 0, 0, 0, 1
+		font_size: 20
+		pos_hint: {"x": 0, "y": .05}
+		halign: 'center'
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Add new task'
+		size_hint: None, None
+		pos_hint: {'right': 1}
+		size: 150, 50
+		on_release: root.manager.current = "Add"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Calendar'
+		size_hint: None, None
+		size: 150, 50
+		on_release: root.manager.current = "Calendar"
+
+<AddScreen>:
+	canvas:
+		Color:
+			rgb: 1, 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		markup: True
+		text: "Add your own task"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .4}
+		halign: 'center'
+		valign: 'middle'	
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Add'
+		size_hint_y: .1
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .75}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Label:
+		markup: True
+		text: "Or choose one of these categories"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .15}
+		halign: 'center'
+		valign: 'middle'
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Home'
+		size_hint_y: .1
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .5}
+		font_size: 20
+		on_release: root.manager.current = "Home"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Fitness'
+		size_hint_y: .1
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .39}
+		font_size: 20
+		on_release: root.manager.current = "Fitness"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Hobby'
+		size_hint_y: .1
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .28}
+		font_size: 20
+		on_release: root.manager.current = "Hobby"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Calendar'
+		size_hint: None, None
+		pos_hint: {'right': 1}
+		size: 150, 50
+		on_release: root.manager.current = "Calendar"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Main'
+		size_hint: None, None
+		size: 150, 50
+		on_release: root.manager.current = "Main"
+	
+<CalendarScreen>:
+	canvas:
+		Color:
+			rgb: 0, 0, 0, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size	
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Add new task'
+		size_hint: None, None
+		pos_hint: {'right': 1}
+		size: 150, 50
+		on_release: root.manager.current = "Add"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Main'
+		size_hint: None, None
+		size: 150, 50
+		on_release: root.manager.current = "Main"
+	CalendarWidget:
+		size_hint_y: .9
+		size_hint_x: .9
+		pos_hint: {"x": .05, "y": .1}
+
+<HomeScreen>:
+	canvas:
+		Color:
+			rgb: 1, 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Main'
+		size_hint: None, None
+		pos_hint: {'right': 1}
+		size: 150, 50
+		on_release: root.manager.current = "Main"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Back'
+		size_hint: None, None
+		size: 150, 50
+		on_release: root.manager.current = "Add"
+	Label:
+		markup: True
+		text: "Home"
+		color: 0, 0, 0, 1
+		font_size: 35
+		pos_hint: {"x": 0, "y": .46}
+		halign: 'center'
+		valign: 'middle'
+	Label:
+		markup: True
+		text: "Add your own task"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .3}
+		halign: 'center'
+		valign: 'middle'	
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Add'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .70}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Label:
+		markup: True
+		text: "Or choose one of these"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .15}
+		halign: 'center'
+		valign: 'middle'
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Do the cleaning'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .55}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Water the plants'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .49}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Pay the bills'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .43}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Wash the clothes'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .37}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Vacuum-clean'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .31}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Take out the trash'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .25}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+
+<FitnessScreen>:
+	canvas:
+		Color:
+			rgb: 1, 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		markup: True
+		text: "Fitness"
+		color: 0, 0, 0, 1
+		font_size: 35
+		pos_hint: {"x": 0, "y": .46}
+		halign: 'center'
+		valign: 'middle'
+	Label:
+		markup: True
+		text: "Add your own task"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .3}
+		halign: 'center'
+		valign: 'middle'	
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Add'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .70}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Label:
+		markup: True
+		text: "Or choose one of these"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .15}
+		halign: 'center'
+		valign: 'middle'
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Go to the gym'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .55}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Go for a run'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .49}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Go to the pool'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .43}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Ride a bike'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .37}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Yoga'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .31}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Main'
+		size_hint: None, None
+		pos_hint: {'right': 1}
+		size: 150, 50
+		on_release: root.manager.current = "Main"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Back'
+		size_hint: None, None
+		size: 150, 50
+		on_release: root.manager.current = "Add"
+
+<HobbyScreen>:
+	canvas:
+		Color:
+			rgb: 1, 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		markup: True
+		text: "Hobby"
+		color: 0, 0, 0, 1
+		font_size: 35
+		pos_hint: {"x": 0, "y": .46}
+		halign: 'center'
+		valign: 'middle'
+	Label:
+		markup: True
+		text: "Add your own task"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .3}
+		halign: 'center'
+		valign: 'middle'	
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Add'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .70}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Label:
+		markup: True
+		text: "Or choose one of these"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .15}
+		halign: 'center'
+		valign: 'middle'
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Read a book'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .55}
+		font_size: 20
+		#on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Watch a film'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .49}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Learn new language'
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .43}
+		font_size: 20
+		on_release: root.manager.current = "Task"
+		on_press: inputElement.text=self.text
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Main'
+		size_hint: None, None
+		pos_hint: {'right': 1}
+		size: 150, 50
+		on_release: root.manager.current = "Main"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Back'
+		size_hint: None, None
+		size: 150, 50
+		on_release: root.manager.current = "Add"
+
+<TaskScreen>:
+	texttask: " "
+	category: " "
+	canvas:
+		Color:
+			rgb: 1, 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Label:
+		markup: True
+		text: "Add the task"
+		color: 0, 0, 0, 1
+		font_size: 35
+		pos_hint: {"x": 0, "y": .46}
+		halign: 'center'
+		valign: 'middle'
+	Label:
+		markup: True
+		text: "Your task"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .38}
+		halign: 'center'
+		valign: 'middle'
+	TextInput:
+		id: description
+		text: ' '
+		multiline: False
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .8}
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Main'
+		size_hint: None, None
+		pos_hint: {'right': 1}
+		size: 150, 50
+		on_release: root.manager.current = "Main"
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Back'
+		size_hint: None, None
+		size: 150, 50
+		on_release: root.manager.current = "Add"
+	Label:
+		markup: True
+		text: "Select date"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .26}
+		halign: 'center'
+		valign: 'middle'
+	DatePicker:
+		pHint: 1,1
+		size_hint_x: .15
+		size_hint_y: .1
+		pos_hint: {"x": .425, "y": .62}
+		id: date_task	
+	Label:
+		markup: True
+		text: "Input time (HH:MM)"
+		color: 0, 0, 0, 1
+		font_size: 25
+		pos_hint: {"x": 0, "y": .07}
+	TextInput:
+		id: time_task
+		text: ' '
+		multiline: False
+		size_hint_y: .05
+		size_hint_x: .3
+		pos_hint: {"x": .35, "y": .47}
+	Button:
+		background_normal: ''
+		background_color: .4, .6, .6, 1
+		text: 'Save'
+		size_hint: None, None
+		size: 150, 50
+		pos_hint: {"x": .41, "y": .3}
+		on_release: root.manager.current = "Main"
+		on_press: root.save(root.category, description.text, date_task.text, time_task.text)
