@@ -19,7 +19,8 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import NumericProperty, ReferenceListProperty,\
 	StringProperty, ObjectProperty
 
-tasks = sqlite3.connect("database.db")
+tasks = sqlite3.connect('database.db', check_same_thread=False) 
+tasks.row_factory = sqlite3.Row
 cursor = tasks.cursor()
 
 class MainScreen(Screen):
@@ -33,8 +34,14 @@ class MainScreen(Screen):
 		self.content = "Welcome to the Task Manager!\n\n[i]Start by doing what is necessary;\nthen do what is possible;\nand suddenly you are doing the impossible.[/i]\nFrancis Of Assisi" 
 		sql = "SELECT * FROM tasks WHERE status LIKE 'True'"
 		cursor.execute(sql)
-		self.listTask = re.sub('[!"[)()]', '', str(cursor.fetchall()))
-		self.listTask = re.sub('[]]', '', self.listTask)
+		task = []
+		for row in cursor.execute(sql):
+			task.append({"Category": row["category"], "Description": row["description"], "Date": row["task_date"], "Time": row["task_time"]})
+		
+		finialList = ""
+		for i in task:
+			finialList =finialList + str(i) + '\n'
+		self.listTask = finialList
 		
 class AddScreen(Screen):
 	pass
